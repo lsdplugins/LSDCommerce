@@ -1,0 +1,6 @@
+.vscode/sftp.json
+debug.log
+wp-plugins/*
+wp-themes/*
+wp-content/*
+CHANGELOG.md

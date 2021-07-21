@@ -1,2 +1,3 @@
-# lsdcommerce
-Plugin Toko Online WordPress Indonesia
+# LSDCommerce
+
+Plugin Toko Online WordPress Indonesia.
