@@ -1,12 +1,22 @@
 on: push
-name: Slack Notification
+name: Notification
 jobs:
   slackNotification:
-    name: Slack Notification
+    name: LSD Teams Notification
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Slack Notification
+    - name: LSD Teams
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_CHANNEL }}
+  slackNotification:
+    name: LSDCommerce Notification
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: LSDComemrce Slack
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+   

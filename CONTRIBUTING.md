@@ -1,3 +1,3 @@
 ## Panduan berkontribusi di plugin LSDCommerce
 
-Menginstall Linkungan Kerja
+Menginstall Linkungan Kerja, Mari Kolaborasi
