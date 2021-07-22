@@ -2,14 +2,16 @@ on: push
 name: Notification
 jobs:
   lsdTeamNotification:
-    name: LSD Teams Notification
+    runs-on: ubuntu-latest
+    name: LSD Team Notification
     id: lsdteam
-    uses: slackapi/slack-github-action@v1.14.0
+    uses: slackapi/slack-github-action@v1.15.0
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_CHANNEL }}
   lsdcommerceNotification:
+    runs-on: ubuntu-latest
     name: LSDCommerce Notification
     id: lsdcommerce
-    uses: slackapi/slack-github-action@v1.14.0
+    uses: slackapi/slack-github-action@v1.15.0
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
