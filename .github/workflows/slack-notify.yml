@@ -1,7 +1,7 @@
 on: push
 name: Notification
 jobs:
-  slackNotification:
+  lsdTeamNotification:
     name: LSD Teams Notification
     runs-on: ubuntu-latest
     steps:
@@ -10,7 +10,7 @@ jobs:
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_CHANNEL }}
-  slackNotification:
+  lsdcommerceSlack:
     name: LSDCommerce Notification
     runs-on: ubuntu-latest
     steps:
