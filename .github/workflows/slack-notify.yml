@@ -3,23 +3,13 @@ name: Notification
 jobs:
   lsdTeamNotification:
     name: LSD Teams Notification
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: LSD Teams
-      uses: bryannice/gitactions-slack-notification@2.0.0
-      env:
-        SLACK_INCOMING_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_CHANNEL }}
-        SLACK_TITLE: 'LSDCommerce Push'
-        
-  lsdcommerceSlack:
+    id: lsdteam
+    uses: slackapi/slack-github-action@v1.14.0
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_CHANNEL }}
+  lsdcommerceNotification:
     name: LSDCommerce Notification
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: LSDComemrce Slack
-      uses: bryannice/gitactions-slack-notification@2.0.0
-      env:
-        SLACK_INCOMING_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_TITLE: 'LSDCommerce Push'
-   
+    id: lsdcommerce
+    uses: slackapi/slack-github-action@v1.14.0
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
