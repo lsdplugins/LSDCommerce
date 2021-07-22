@@ -7,16 +7,19 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: LSD Teams
-      uses: rtCamp/action-slack-notify@v2
+      uses: bryannice/gitactions-slack-notification@2.0.0
       env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_CHANNEL }}
+        SLACK_INCOMING_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_CHANNEL }}
+        SLACK_TITLE: 'LSDCommerce Push'
+        
   lsdcommerceSlack:
     name: LSDCommerce Notification
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: LSDComemrce Slack
-      uses: rtCamp/action-slack-notify@v2
+      uses: bryannice/gitactions-slack-notification@2.0.0
       env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_INCOMING_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_TITLE: 'LSDCommerce Push'
    
