@@ -5,14 +5,18 @@ jobs:
     name: LSD Team Notification
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
+    - name: LSD Teams
       uses: slackapi/slack-github-action@v1.15.0
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_CHANNEL }}
-        
+
   lsdcommerceNotification:
     name: LSDCommerce Notification
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - name: LSD Teams
       uses: slackapi/slack-github-action@v1.15.0
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
