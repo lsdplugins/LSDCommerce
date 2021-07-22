@@ -32,6 +32,31 @@ final class Plugin
      * Loads the plugin into WordPress.
      */
 
+     
+    /**
+     * Load Class Activator on Plugin Active
+     *
+     * @return void
+     * @since 1.0.3
+     */
+    public function activation()
+    {
+        require_once LSDC_PATH . 'includes/common/class-activator.php';
+        Activator::activate();
+    }
+
+    /**
+     * Load Class Deactivator on Plugin Deactivate
+     *
+     * @return void
+     * @since 1.0.3
+     */
+    public function uninstall()
+    {
+        require_once LSDC_PATH . 'includes/common/class-deactivator.php';
+        Deactivator::deactivate();
+    }
+
     /**
      * Singleton Load
      *
@@ -68,7 +93,7 @@ final class Plugin
 
         // Load FrontEnd Class [Only for FrontEnd Needs]
         if (is_admin()) {
-            require_once LSDC_PATH . 'backend/class-admin.php';
+            require_once LSDC_PATH . 'admin/class-admin.php';
             Admin::register($plugin);
         }
 
@@ -78,42 +103,40 @@ final class Plugin
         require_once LSDC_PATH . 'includes/registrar/class-registrar-shipping.php';
 
         // Module Payments
-        require_once LSDC_PATH . 'backend/modules/payments/class-payment-static-qr.php';
-        require_once LSDC_PATH . 'backend/modules/payments/class-payment-transfer-bank.php';
-        // require_once LSDC_PATH . 'backend/modules/payments/class-payment-shopee-md.php';
+        require_once LSDC_PATH . 'admin/modules/payments/class-payment-static-qr.php';
+        require_once LSDC_PATH . 'admin/modules/payments/class-payment-transfer-bank.php';
+        // require_once LSDC_PATH . 'admin/modules/payments/class-payment-shopee-md.php';
 
         // Module Notification
-        require_once LSDC_PATH . 'backend/modules/notifications/class-notification-webhook.php';
-        require_once LSDC_PATH . 'backend/modules/notifications/class-notification-whatsapp.php';
-        require_once LSDC_PATH . 'backend/modules/notifications/class-notification-email.php';
+        require_once LSDC_PATH . 'admin/modules/notifications/class-notification-whatsapp.php';
+        require_once LSDC_PATH . 'admin/modules/notifications/class-notification-email.php';
 
         // Module Shipping
-        require_once LSDC_PATH . 'backend/modules/shipping/class-shipping-email.php';
-        require_once LSDC_PATH . 'backend/modules/shipping/class-shipping-rajaongkir-starter.php';
-        // require_once LSDC_PATH . 'backend/modules/shipping/class-shipping-cod.php'; // bayar dirumah
-        // require_once LSDC_PATH . 'backend/modules/shipping/class-shipping-pickup.php'; // ambil ketempat
+        require_once LSDC_PATH . 'admin/modules/shipping/class-shipping-email.php';
+        require_once LSDC_PATH . 'admin/modules/shipping/class-shipping-rajaongkir-starter.php';
+        // require_once LSDC_PATH . 'admin/modules/shipping/class-shipping-cod.php'; // bayar dirumah
+        // require_once LSDC_PATH . 'admin/modules/shipping/class-shipping-pickup.php'; // ambil ketempat
 
         // Load Notification Services
         // require_once LSDC_PATH . '/includes/services/scheduler/scheduler.php';
 
-        // Load Global Class
-        // require_once LSDC_PATH . '/includes/wp.php';
-        // Wordpress::register();
-
         // Load FrontEnd Class [Only for FrontEnd Needs]
         if (!is_admin()) {
-            require_once LSDC_PATH . 'frontend/class-frontend.php';
-            Frontend::register($plugin);
+            require_once LSDC_PATH . 'public/class-public.php';
+            Generic::register($plugin);
 
             // Member
-            require_once LSDC_PATH . 'frontend/modules/member/tab-functions.php';
+            require_once LSDC_PATH . 'public/modules/member/tab-functions.php';
 
             // Shortcodes
-            require_once LSDC_PATH . 'frontend/shortcodes/class-checkout.php';
-            require_once LSDC_PATH . 'frontend/shortcodes/class-confirmation.php';
-            require_once LSDC_PATH . 'frontend/shortcodes/class-listing.php';
-            require_once LSDC_PATH . 'frontend/shortcodes/class-member.php';
-            require_once LSDC_PATH . 'frontend/shortcodes/class-storefront.php';
+            require_once LSDC_PATH . 'includes/shortcodes/class-storefront.php';
+            require_once LSDC_PATH . 'includes/shortcodes/class-product-card.php';
+
+            require_once LSDC_PATH . 'includes/shortcodes/class-cart.php';
+            require_once LSDC_PATH . 'includes/shortcodes/class-checkout.php';
+            require_once LSDC_PATH . 'includes/shortcodes/class-confirmation.php';
+
+            require_once LSDC_PATH . 'includes/shortcodes/class-member.php';
         }
 
     }
@@ -121,30 +144,6 @@ final class Plugin
     public function loaded()
     {
         load_plugin_textdomain('lsdcommerce', false, LSDC_PATH . '/languages/');
-    }
-
-    /**
-     * Load Class Activator on Plugin Active
-     *
-     * @return void
-     * @since 1.0.3
-     */
-    public function activation()
-    {
-        require_once LSDC_PATH . 'includes/common/class-activator.php';
-        Activator::activate();
-    }
-
-    /**
-     * Load Class Deactivator on Plugin Deactivate
-     *
-     * @return void
-     * @since 1.0.3
-     */
-    public function uninstall()
-    {
-        require_once LSDC_PATH . 'includes/common/class-deactivator.php';
-        Deactivator::deactivate();
     }
 
     /**
