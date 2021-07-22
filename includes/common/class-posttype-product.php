@@ -67,22 +67,22 @@ class PostTypes_Product
 
         register_post_type('product', $args);
 
-        // register_taxonomy(
-        //     'product-category',
-        //     'product',
-        //     array(
-        //         'hierarchical' => true,
-        //         'label' => __('Kategori'),
-        //         'query_var' => true,
-        //         'public' => true,
-        //         'rewrite' => array(
-        //             'slug' => __('kategori', 'lsdcommerce'),
-        //             'with_front' => true,
-        //             'hierarchical' => true,
-        //         ),
-        //         'has_archive' => false,
-        //     )
-        // );
+        register_taxonomy(
+            'product-category',
+            'product',
+            array(
+                'hierarchical' => true,
+                'label' => __('Kategori'),
+                'query_var' => true,
+                'public' => true,
+                'rewrite' => array(
+                    'slug' => __('kategori', 'lsdcommerce'),
+                    'with_front' => true,
+                    'hierarchical' => true,
+                ),
+                'has_archive' => false,
+            )
+        );
 
         // $this->flush();
     }

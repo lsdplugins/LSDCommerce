@@ -63,10 +63,8 @@ wp_enqueue_style('lsdc-cart');
               </h6>
 
               <!-- Product Category -->
-              <div class="product-item-category">
-                <span>Template</span>
-              </div>
-              <?php //echo get_the_term_list( get_the_ID(), 'product-category', ' <div class="product-item-category">', ', ', '</div>' ); ?>
+              <?php echo get_the_term_list( get_the_ID(), 'product-category', ' <div class="product-item-category">', ', ', '</div>' ); ?>
+              
             </div>
 
             <div class="col-auto ml-auto py-10">
