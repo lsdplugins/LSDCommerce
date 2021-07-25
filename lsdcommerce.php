@@ -37,11 +37,11 @@ defined('LSDC_TRANSLATION') or define('LSDC_TRANSLATION', '0.0.0.1'); // Show Up
  * PHP :: 7.3 - 7.4
  * WordPress :: 5.7
  */
-if (!version_compare(PHP_VERSION, '7.2', '>=')) {
+if (version_compare(PHP_VERSION, '7.3', '<')) {
+	add_action('admin_notices', 'lsdc_fail_php_version');
+} elseif (version_compare(PHP_VERSION, '7.5', '>=')) {
     add_action('admin_notices', 'lsdc_fail_php_version');
-} elseif (!version_compare(PHP_VERSION, '7.5', '<=')) {
-    add_action('admin_notices', 'lsdc_fail_php_version');
-} elseif (!version_compare(get_bloginfo('version'), '5.7', '>=')) {
+} elseif (version_compare(get_bloginfo('version'), '5.6', '<')) {
     add_action('admin_notices', 'lsdc_fail_wp_version');
 } else {
     if (WP_DEBUG == true) {

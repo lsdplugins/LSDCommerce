@@ -13,7 +13,7 @@ class StoreFront
 {
     public function __construct()
     {
-        add_shortcode('lsdcommerce_etalase', [$this, 'render']);
+        add_shortcode('lsdcommerce_storefront', [$this, 'render']);
     }
 
     public function filter()
@@ -31,33 +31,35 @@ class StoreFront
     public function render($atts)
     {
 
+      if(is_admin()){
+        return;
+      }
 
-        ob_start(); ?>
+      ob_start(); ?>
 
-<div id="lsdcommerce-storefront" class="max480">
+        <div id="lsdcommerce-storefront" class="max480">
 
-  <main class="lsdc-card">
-    <!-- Header Store -->
-    <div class="card-header card-header-white">
-      <h6 class="card-title">
-        <?php _e('Semua Produk', 'lsdcommerce'); ?>
-        <small><?php // echo lsdc_count_products( 'lsdc-product', 'Produk', 'Produk' );?></small>
-      </h6>
-    </div>
+          <main class="lsdc-card">
 
-    <!-- Body Store -> Product Listing -->
-    <div class="card-body">
-      <?php load_template( LSDC_PATH . 'frontend/templates/storefront/product/listing.php', true ); ?>
-    </div>
+            <div class="card-header card-header-white">
+              <h6 class="card-title">
+                <?php _e('Semua Produk', 'lsdcommerce'); ?>
+                <small><?php // echo lsdc_count_products( 'lsdc-product', 'Produk', 'Produk' );?></small>
+              </h6>
+            </div>
 
-  </main>
+            <div class="card-body">
+              <?php load_template( LSDC_PATH . 'public/templates/storefront/product/listing.php', true ); ?>
+            </div>
 
-</div>
-<?php
-        $render = ob_get_clean();
+          </main>
 
-        return $render;
+        </div>
+
+      <?php
+      $render = ob_get_clean();
+
+      return $render;
     }
 }
 new StoreFront();
-?>

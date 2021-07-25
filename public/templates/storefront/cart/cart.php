@@ -60,8 +60,12 @@
       <div class="container">
         <div class="lsdp-row no-gutters">
 
-          <div class="col-auto ml-auto inline-flex">
+          <div class="col-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" style="margin:3px;" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          </div>
 
+          <div class="col-auto ml-auto inline-flex">
+            
           </div>
 
           <div class="col-auto">
@@ -75,7 +79,7 @@
               <div class="col-auto pr-0">
                 <a href="javascript:void(0);" class="cart-manager">
                   <span class="counter">0</span>
-                  <img src="<?php echo LSDC_URL; ?>frontend/assets/svg/cart.svg" alt="" class="icon-20">
+                  <img src="<?php echo LSDC_URL; ?>public/assets/svg/cart.svg" alt="" class="icon-20">
                 </a>
               </div>
 

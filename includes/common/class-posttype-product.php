@@ -409,7 +409,7 @@ class PostTypes_Product
     public function archive()
     {
         if (is_post_type_archive('product')) {
-            return LSDC_PATH . 'frontend/templates/storefront/listing.php';
+            return LSDC_PATH . 'public/templates/storefront/listing.php';
         }
     }
 

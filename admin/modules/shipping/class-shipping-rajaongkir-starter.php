@@ -135,8 +135,8 @@ class RajaOngkirStarter extends Shipping_Template
             $email = $object['email'];
 
             // Default Template
-            if( file_exists( LSDC_PATH . 'frontend/templates/emails/' . $event . '-source-' .  $country .'.html') ){
-                $template = file_get_contents( LSDC_PATH . 'frontend/templates/emails/' . $event . '-source-' .  $country .'.html');
+            if( file_exists( LSDC_PATH . 'public/templates/emails/' . $event . '-source-' .  $country .'.html') ){
+                $template = file_get_contents( LSDC_PATH . 'public/templates/emails/' . $event . '-source-' .  $country .'.html');
             }
            
             // Personal Template
@@ -410,11 +410,11 @@ class RajaOngkirStarter extends Shipping_Template
                                     if (file_exists(LSDC_STORAGE . '/email-order-' . $this->country . '.html')) {
                                         require_once LSDC_STORAGE . '/email-order-' . $this->country . '.html';
                                     } else {
-                                        require_once LSDC_PATH . 'frontend/templates/emails/order-source-' . $this->country . '.html';
+                                        require_once LSDC_PATH . 'public/templates/emails/order-source-' . $this->country . '.html';
                                         // Set Log : Cannot Saving Email to WP-Content
                                     }
                                 } else {
-                                    require_once LSDC_PATH . 'frontend/templates/emails/order-source-' . $this->country . '.html'; // On Not Exist Saved Data
+                                    require_once LSDC_PATH . 'public/templates/emails/order-source-' . $this->country . '.html'; // On Not Exist Saved Data
                                 }?>
                             </div>
                         </div>
@@ -486,11 +486,11 @@ class RajaOngkirStarter extends Shipping_Template
                                     if (file_exists(LSDC_STORAGE . '/email-completed-' . $this->country . '.html')) {
                                         require_once LSDC_STORAGE . '/email-completed-' . $this->country . '.html';
                                     } else {
-                                        require_once LSDC_PATH . 'frontend/templates/emails/completed-source-' . $this->country . '.html';
+                                        require_once LSDC_PATH . 'public/templates/emails/completed-source-' . $this->country . '.html';
                                         // Set Log : Cannot Saving Email to WP-Content
                                     }
                                 } else {
-                                    require_once LSDC_PATH . 'frontend/templates/emails/completed-source-' . $this->country . '.html'; // On Not Exist Saved Data
+                                    require_once LSDC_PATH . 'public/templates/emails/completed-source-' . $this->country . '.html'; // On Not Exist Saved Data
                                 }?>
                             </div>
 

@@ -125,17 +125,16 @@ final class Plugin
             require_once LSDC_PATH . 'public/class-public.php';
             Generic::register($plugin);
 
-            // Member
-            require_once LSDC_PATH . 'public/modules/member/tab-functions.php';
-
-            // Shortcodes
+            // Shopping
             require_once LSDC_PATH . 'includes/shortcodes/class-storefront.php';
             require_once LSDC_PATH . 'includes/shortcodes/class-product-card.php';
 
+            // Transaction
             require_once LSDC_PATH . 'includes/shortcodes/class-cart.php';
             require_once LSDC_PATH . 'includes/shortcodes/class-checkout.php';
-            require_once LSDC_PATH . 'includes/shortcodes/class-confirmation.php';
 
+            // After Sales
+            require_once LSDC_PATH . 'public/modules/member/tab-functions.php';
             require_once LSDC_PATH . 'includes/shortcodes/class-member.php';
         }
 

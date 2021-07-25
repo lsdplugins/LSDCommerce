@@ -135,8 +135,8 @@ class Email extends Shipping_Template
             $email = $object['email'];
 
             // Default Template
-            if( file_exists( LSDC_PATH . 'frontend/templates/emails/' . $event . '-source-' .  $country .'.html') ){
-                $template = file_get_contents( LSDC_PATH . 'frontend/templates/emails/' . $event . '-source-' .  $country .'.html');
+            if( file_exists( LSDC_PATH . 'public/templates/emails/' . $event . '-source-' .  $country .'.html') ){
+                $template = file_get_contents( LSDC_PATH . 'public/templates/emails/' . $event . '-source-' .  $country .'.html');
             }
            
             // Personal Template

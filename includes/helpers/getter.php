@@ -58,14 +58,13 @@ function lsdc_get_product_stock($product_id = false)
     if ($product_id == null) {
         $product_id = get_the_ID();
     }
+
     //Fallback Product ID
-    $stock = '' . __('Stok', 'lsdcommerce') . ' : <span>';
     if (get_post_meta($product_id, '_stock', true) > 999):
-        $stock .= __('Tersedia', 'lsdcommerce');
+        $stock .= '<span>' . __('Tersedia', 'lsdcommerce') . '</span>';
     else:
-        $stock .= abs(get_post_meta(get_the_ID(), '_stock', true)) . ' ' . esc_attr(get_post_meta(get_the_ID(), '_stock_unit', true));
+        $stock .= abs(get_post_meta(get_the_ID(), '_stock', true)) . ' ' . esc_attr(get_post_meta(get_the_ID(), '_stock_unit', true)) . __(' tersisa');
     endif;
-    $stock .= '</span>';
 
     return $stock;
 }
